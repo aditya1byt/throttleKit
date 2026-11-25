@@ -5,10 +5,7 @@ import type { Redis as RedisClient } from 'ioredis';
 import type { RateLimiter, RateLimitResult } from '../types.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const luaScript = readFileSync(
-  join(__dirname, 'lua', 'fixedWindow.lua'),
-  'utf-8',
-);
+const luaScript = readFileSync(join(__dirname, 'lua', 'fixedWindow.lua'), 'utf-8');
 
 /**
  * Fixed Window rate limiter.

@@ -17,10 +17,7 @@ export interface RateLimitResult {
 
 /** Supported algorithm identifiers */
 export type AlgorithmName =
-  | 'fixedWindow'
-  | 'slidingWindowLog'
-  | 'slidingWindowCounter'
-  | 'tokenBucket';
+  'fixedWindow' | 'slidingWindowLog' | 'slidingWindowCounter' | 'tokenBucket';
 
 /**
  * Common interface every rate limiter algorithm must implement.
@@ -40,11 +37,7 @@ export interface RateLimiter {
    * @param limit - Maximum allowed requests per window
    * @param windowSeconds - Window duration in seconds
    */
-  check(
-    key: string,
-    limit: number,
-    windowSeconds: number,
-  ): Promise<RateLimitResult>;
+  check(key: string, limit: number, windowSeconds: number): Promise<RateLimitResult>;
 
   /**
    * Reset (delete) all rate-limit state for a key.

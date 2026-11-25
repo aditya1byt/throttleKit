@@ -18,7 +18,7 @@ export type RedisClient = Redis;
  * @param url - Redis connection URL, defaults to localhost
  */
 export function createRedisClient(url?: string): RedisClient {
-  return new Redis(url ?? 'redis://localhost:6379', {
+  return new Redis(url ?? process.env.REDIS_URL ?? 'redis://127.0.0.1:6379', {
     // Don't retry forever if Redis is down — let the caller handle it
     maxRetriesPerRequest: 3,
     // Disable offline queue so commands fail fast when disconnected
